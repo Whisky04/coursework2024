@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="497.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.fxControllers.main">
+    <children>
+        <TabPane fx:id="tabPane" prefHeight="497.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab fx:id="shopTab" text="Shop">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ListView fx:id="shopProducts" layoutX="14.0" layoutY="14.0" prefHeight="339.0" prefWidth="218.0" />
+                                <ListView fx:id="myCartItems" layoutX="250.0" layoutY="14.0" prefHeight="179.0" prefWidth="335.0" />
+                                <Button layoutX="489.0" layoutY="212.0" mnemonicParsing="false" onAction="#buyItems" prefHeight="26.0" prefWidth="93.0" styleClass="btn-custom" text="Buy" />
+                                <Button layoutX="14.0" layoutY="368.0" mnemonicParsing="false" onAction="#loadProductReviewForm" styleClass="btn-custom" text="Leave Review" />
+                                <Button layoutX="250.0" layoutY="213.0" mnemonicParsing="false" onAction="#addToCart" styleClass="btn-custom" text="Add to Cart" />
+                                <Button layoutX="352.0" layoutY="213.0" mnemonicParsing="false" onAction="#removeFromCart" styleClass="btn-custom" text="Remove from Cart" />
+                                <Button layoutX="531.0" layoutY="430.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
+                                <TextField fx:id="materialFilterField" layoutX="250.0" layoutY="258.0" promptText="Material" />
+                                <TextField fx:id="colorFilterField" layoutX="250.0" layoutY="293.0" promptText="Color" />
+                                <RadioButton fx:id="ringFilterRadio" layoutX="250.0" layoutY="325.0" mnemonicParsing="false" text="Ring" />
+                                <RadioButton fx:id="necklaceFilterRadio" layoutX="300.0" layoutY="325.0" mnemonicParsing="false" text="Necklace" />
+                                <Button layoutX="251.0" layoutY="355.0" mnemonicParsing="false" onAction="#filter" text="Filter" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="productsTab" text="Products">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ListView fx:id="productAdminList" layoutX="14.0" layoutY="14.0" onMouseClicked="#loadProductData" prefHeight="341.0" prefWidth="210.0" />
+                                <Button layoutX="244.0" layoutY="329.0" mnemonicParsing="false" onAction="#createRecord" styleClass="btn-custom" text="Add" />
+                                <Button layoutX="358.0" layoutY="329.0" mnemonicParsing="false" onAction="#updateRecord" text="Update" />
+                                <Button layoutX="481.0" layoutY="329.0" mnemonicParsing="false" onAction="#deleteRecord" text="Delete" />
+                                <TextField fx:id="productTitleField" layoutX="232.0" layoutY="43.0" promptText="Title" />
+                                <TextArea fx:id="productDescriptionField" layoutX="232.0" layoutY="78.0" prefHeight="154.0" prefWidth="149.0" promptText="Description" />
+                                <TextField fx:id="productQuantityField" layoutX="232.0" layoutY="242.0" promptText="Quantity" />
+                                <TextField fx:id="productColourField" layoutX="406.0" layoutY="198.0" promptText="Colour" />
+                                <TextField fx:id="productMaterialField" layoutX="406.0" layoutY="165.0" promptText="Material" />
+                                <TextField fx:id="productDiameterField" layoutX="406.0" layoutY="78.0" promptText="Diameter" />
+                                <TextField fx:id="productLengthField" layoutX="406.0" layoutY="104.0" promptText="Length" />
+
+<!--                                <ComboBox fx:id="productTypeField" layoutX="395.0" layoutY="78.0" prefHeight="25.0" prefWidth="172.0" />-->
+                                <RadioButton fx:id="productRingRadio" layoutX="232.0" layoutY="14.0" mnemonicParsing="false" onAction="#disableFields" text="Rings">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="productType" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="productNecklaceRadio" layoutX="300.0" layoutY="14.0" mnemonicParsing="false" onAction="#disableFields" text="Necklaces" toggleGroup="$productType" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="usersTab" text="Users">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="managerTable" prefHeight="204.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn fx:id="managerColId" prefWidth="75.0" text="Id" />
+                                        <TableColumn fx:id="managerColLogin" prefWidth="75.0" text="Login" />
+                                        <TableColumn fx:id="managerColName" prefWidth="75.0" text="Name" />
+                                        <TableColumn prefWidth="75.0" text="Surname" />
+                                        <TableColumn fx:id="dummyCol" prefWidth="75.0" text="Action" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="customerTable" layoutY="223.0" prefHeight="247.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="C1" />
+                                        <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn prefWidth="75.0" text="Column X" />
+                                        <TableColumn prefWidth="75.0" text="Column X" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="ordersTab" text="Orders">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab fx:id="warehousesTab" text="Warehouses">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
